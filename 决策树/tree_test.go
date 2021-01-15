@@ -1,6 +1,7 @@
 package decisionTree
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -11,7 +12,10 @@ func TestTree(t *testing.T) {
 }
 
 func TestNew(t *testing.T) {
-	_ = New(GetData())
-
+	tree := New(GetData())
+	one := []interface{}{
+		2,2,1,5,
+	}
+	fmt.Println(tree.Predict(one))
 }
 
