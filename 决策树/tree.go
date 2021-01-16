@@ -3,6 +3,7 @@ package decisionTree
 import (
 	"errors"
 	"fmt"
+	"github.com/sta-golang/Machine-Learning/common"
 	"github.com/sta-golang/go-lib-utils/algorithm/data_structure"
 	"github.com/sta-golang/go-lib-utils/algorithm/data_structure/set/hashset"
 	"math"
@@ -13,7 +14,6 @@ type DecisionTree struct {
 	root *node
 }
 
-var parameterErr = errors.New("wrong data parameter")
 
 type node struct {
 	Feature interface{} `json:"feature"`
@@ -34,7 +34,7 @@ func New(data[][]interface{}, features []interface{}) *DecisionTree {
 
 func (dt *DecisionTree) Predict(data []interface{}) (interface{}, error) {
 	if len(data) != len(dt.featuresMap) {
-		return nil, parameterErr
+		return nil, common.ParameterErr
 	}
 	curNode := dt.root
 	for !curNode.IsLeafNode {
