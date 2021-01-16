@@ -9,3 +9,4 @@
 ### 目录
 
 [**决策树**](https://github.com/sta-golang/Machine-Learning/tree/master/%E5%86%B3%E7%AD%96%E6%A0%91)
+[**朴素贝叶斯**](https://github.com/sta-golang/Machine-Learning/tree/master/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF)
