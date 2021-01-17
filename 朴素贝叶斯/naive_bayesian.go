@@ -1,6 +1,7 @@
 package naive_bayesian
 
 import (
+	"fmt"
 	"github.com/sta-golang/Machine-Learning/common"
 	"github.com/sta-golang/go-lib-utils/algorithm/data_structure/set/hashset"
 	"gonum.org/v1/gonum/stat"
@@ -88,6 +89,7 @@ func (nb *naiveBayesian) Predict(oneData []float64) (string, error) {
 		j := 0
 
 		for fp := range featureP {
+			fmt.Println(nb.gaussian(featureP[fp].mu, featureP[fp].sigma, oneData[j]))
 			currentP *= nb.gaussian(featureP[fp].mu, featureP[fp].sigma, oneData[j])
 			j++
 		}
@@ -112,6 +114,7 @@ func (nb *naiveBayesian) interpreter(arg interface{}) string {
 
 // 高斯正态分布
 func (nb *naiveBayesian) gaussian(mu, sigma, x float64) float64 {
+	fmt.Println(mu, sigma, x)
 	return 1.0 / (math.Sqrt(2*math.Pi) * sigma) * math.Pow(math.E,(-math.Pow((x-mu), 2)/(2*math.Pow(sigma, 2))))
 }
 
@@ -122,6 +125,7 @@ func (nb *naiveBayesian) sumCnt(labels []interface{}, value interface{}) int {
 			cnt++
 		}
 	}
+
 	return cnt
 }
 
